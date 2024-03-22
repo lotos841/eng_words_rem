@@ -1,0 +1,202 @@
+
+.App {
+    max-width: 800px;
+    min-height: 500px;
+    margin: 40px auto;
+    background-color: var(--block-bg-color);
+    border: 2px solid white;
+    border-radius: 10px;
+    color: var(--text-color);
+}
+
+.Header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px solid white;
+    padding: 15px;
+
+    .logo img{
+        border: 2px solid rgb(5, 5, 5);
+        border-radius: 50%;
+        width: 30px;
+    }
+
+    .nav {
+        display: flex;
+        gap: 20px;
+        
+        .link a{
+            font-weight: 700;
+            transition: 0.2s ease;
+
+            &:hover {
+                color: var(--accent-color);
+            }
+        }
+    }
+}
+
+.Main_content {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+
+    .Tab {
+        border-right: 2px solid white;
+        max-width: 200px;
+        padding-right: 20px;
+
+        .addword {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 7px;
+            margin-top: 10px;
+            border: 1px solid white;
+            border-radius: 0px 10px 10px 0px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            font-weight: 600;
+
+            .icon {
+                font-size: 24px;
+            }
+
+            &:hover {
+                border: 1px solid var(--accent-color);
+                background-color: var(--accent-color);
+                color: black;
+            }
+        }
+
+        .list {
+            width: 100%;
+            margin-top: 10px;
+            height: 400px;
+            overflow-y: scroll;
+            overflow-x:hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 7px;
+
+            .item {
+                cursor: pointer;
+                transition: all 0.2s ease;
+                border-radius: 5px;
+                padding: 10px 15px;
+                &:hover {
+                    color: black;
+                    background-color: var(--accent-color);
+                }
+            }
+        }  
+    }
+
+    .Boxes {
+        overflow: hidden;
+        height: 500px;
+
+        .input_text {
+            background-color: var(--block-bg-color);
+            color: var(--text-color);
+            font-size: 28px;
+            min-height: 200px;
+            width: 100%;
+            text-align: center;
+            border-bottom: 2px solid white;
+        }
+        .translate_box {
+            margin-top: 130px;
+            .text {
+                text-align: center;
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+.AddWordModal {
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--block-bg-color);
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px 10px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 200px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    transition: 0.2s ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    
+    input {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: var(--block-bg-color);
+        border: 1px solid white;
+        border-radius: 7px;
+        font-size: 18px;
+        text-align: center;
+        color: var(--text-color);
+    }
+
+    .add_word_button {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 10px 20px;
+        border-radius: 7px;
+        border: 2px solid white;
+        transition: all 0.2s ease;
+        opacity: 0.3;
+    
+        .icon {
+            font-size: 24px;
+        }
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            color: black;
+        }
+        &.possibility {
+            opacity: 1;
+        }
+    }
+
+    .close_modal_btn {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        padding: 0px;
+        border-radius: 50%;
+        font-size: 36px;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
+}
+
+.AddWordModal.visible {
+    visibility: visible;
+    opacity: 1;
+}
